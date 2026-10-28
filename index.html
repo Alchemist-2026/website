@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Alchemist – The Lake Viewery is a world-class lakeside sanctuary. Experience Michelin-inspired cuisines, woodfired pizzas, master-crafted artisan coffee, state-of-the-art VIP PS5 lounges, active VR gaming, and a majestic 360° projection Dome Theatre." />
+    <meta name="keywords" content="Alchemist Lake Viewery, luxury cafe, lakeside cafe, premium dining, PS5 lounge, VR arena, immersive dome theatre, woodfired pizza, artisan coffee" />
+    <title>Alchemist – The Lake Viewery | Premium Immersive Cafe, Dining &amp; Gaming Destination</title>
+    
+    <!-- Proactive Diagnostic Screen Catcher -->
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        const div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.height = '100%';
+        div.style.background = '#8b0000';
+        div.style.color = '#ffffff';
+        div.style.padding = '30px';
+        div.style.zIndex = '999999';
+        div.style.fontFamily = 'monospace';
+        div.style.fontSize = '14px';
+        div.style.lineHeight = '1.6';
+        div.style.overflow = 'auto';
+        div.style.whiteSpace = 'pre-wrap';
+        div.innerHTML = '<h1 style="font-size: 28px; margin-bottom: 20px; border-bottom: 2px solid white; padding-bottom: 10px;">🚨 JS Runtime Error Intercepted</h1>' + 
+                        '<p style="font-size: 16px; color: #ffcccb;"><strong>Message:</strong> ' + message + '</p>' +
+                        '<p><strong>Source File:</strong> ' + source + '</p>' +
+                        '<p><strong>Coordinates:</strong> Line ' + lineno + ', Col ' + colno + '</p>' +
+                        '<p style="margin-top: 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 4px;"><strong>Stack Trace:</strong><br>' + (error && error.stack ? error.stack.replace(/\\n/g, "<br>") : 'No stack trace available') + '</p>';
+        document.body.appendChild(div);
+        return false;
+      };
+    </script>
+  </head>
+  <body class="bg-[#0c0706] text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
