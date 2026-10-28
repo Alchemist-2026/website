@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-coffee-brown: #3e2723;
+  --color-dark-coffee: #4b2e2b;
+  --color-deep-dark: #0c0706;
+  --color-warm-beige: #e8dcc8;
+  --color-accent-gold: #c8a46b;
+  --color-text-dark: #1a1a1a;
+  
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0706;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8a46b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b28e57;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c0706;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Smooth Scroll using Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(75, 46, 43, 0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 164, 107, 0.12);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(12, 7, 6, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card:hover {
+  background: rgba(200, 164, 107, 0.04);
+  border-color: rgba(200, 164, 107, 0.25);
+  box-shadow: 0 20px 40px rgba(200, 164, 107, 0.05);
+}
+
+/* Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f9f3e9 0%, #c8a46b 50%, #b28e57 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Accent Border Glow */
+.gold-glow {
+  box-shadow: 0 0 15px rgba(200, 164, 107, 0.15);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(200, 164, 107, 0.35);
+}
+
+/* Neon accents for gaming elements */
+.neon-glow-ps5 {
+  border-color: rgba(0, 112, 243, 0.25);
+}
+.neon-glow-ps5:hover {
+  box-shadow: 0 0 25px rgba(0, 112, 243, 0.2);
+  border-color: rgba(0, 112, 243, 0.6);
+}
+
+.neon-glow-vr {
+  border-color: rgba(186, 85, 211, 0.25);
+}
+.neon-glow-vr:hover {
+  box-shadow: 0 0 25px rgba(186, 85, 211, 0.2);
+  border-color: rgba(186, 85, 211, 0.6);
+}
+
+.neon-glow-gold {
+  border-color: rgba(200, 164, 107, 0.25);
+}
+.neon-glow-gold:hover {
+  box-shadow: 0 0 25px rgba(200, 164, 107, 0.2);
+  border-color: rgba(200, 164, 107, 0.6);
+}
+
+/* Spotlight elements */
+.spotlight {
+  pointer-events: none;
+  background: radial-gradient(circle 180px at var(--x, 0px) var(--y, 0px), rgba(200, 164, 107, 0.12) 0%, transparent 100%);
+}
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(200, 164, 107, 0.06), transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Custom animation classes */
+@keyframes pulse-gold {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(200, 164, 107, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(200, 164, 107, 0.8);
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 3s infinite ease-in-out;
+}
+
+/* Hide scrollbars but keep functionality */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
