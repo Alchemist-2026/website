@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { BRAND_INFO } from '../data/content';
 import { ArrowDown, Calendar } from 'lucide-react';
-import coffeeVideo from "./video/cafe.MOV";
-import logoImage from "./video/logo.png";
+import coffeeVideo from '../assets/Video/cafe.MOV';
+import logoImage from '../assets/Video/logo.png';
 
 export default function Hero() {
   const bgRef = useRef(null);
