@@ -51,21 +51,36 @@ export default function Contact() {
       throw new Error('Could not save your reservation. Please try again.');
     }
 
-    // 2. Send the ntfy notification (best-effort: a failure here
-    //    should not make the customer think the booking failed)
-    const { data, error } = await supabase.functions.invoke(
-      'send-booking-notification',
-      { body: booking },
-    );
+    // 2. Send the ntfy notification to https://ntfy.sh/Cafe-Reservation26 (best-effort)
+    const ntfyTopicOrUrl = import.meta.env.VITE_NTFY_TOPIC || 'Cafe-Reservation26';
+    const ntfyEndpoint = ntfyTopicOrUrl.startsWith('http')
+      ? ntfyTopicOrUrl
+      : `https://ntfy.sh/${ntfyTopicOrUrl}`;
 
-    if (error) {
-      // Read the real reason from the function's response body
-      const details = error.context
-        ? await error.context.json().catch(() => null)
-        : null;
-      console.error('Reservation notification failed:', details ?? error);
-    } else if (!data?.success) {
-      console.error('Notification not sent:', data?.error);
+    const ntfyBody = [
+      'New reservation received',
+      '',
+      `Name: ${booking.name}`,
+      `Phone: ${booking.phone || 'Not provided'}`,
+      `Email: ${booking.email || 'Not provided'}`,
+      `Date: ${booking.date}`,
+      `Time: ${booking.time}`,
+      `Guests: ${booking.guests}`,
+      `Message: ${booking.message || 'None'}`,
+    ].join('\n');
+
+    try {
+      await fetch(ntfyEndpoint, {
+        method: 'POST',
+        headers: {
+          'Title': 'New Cafe Reservation',
+          'Priority': 'high',
+          'Tags': 'bell',
+        },
+        body: ntfyBody,
+      });
+    } catch (ntfyErr) {
+      console.warn('Direct ntfy notification failed:', ntfyErr);
     }
 
     setSubmitted(true);
