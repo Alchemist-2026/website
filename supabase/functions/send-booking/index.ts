@@ -127,7 +127,7 @@ serve(async (req: Request) => {
       }, 400);
     }
 
-    const ntfyTopic = Deno.env.get("NTFY_TOPIC");
+    const ntfyTopic = Deno.env.get("NTFY_TOPIC") || "Cafe-Reservation26";
     const ntfyServer = Deno.env.get("NTFY_SERVER_URL") || "https://ntfy.sh";
 
     if (!ntfyTopic) {
